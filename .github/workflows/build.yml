@@ -29,6 +29,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     strategy:
       matrix:
         DOCKER_BASE_IMAGE: [ "alpine:latest", "debian:stable-slim" ]
@@ -57,11 +61,11 @@ jobs:
       shell: bash
       env:
         DOCKER_BASE_IMAGE: ${{ matrix.DOCKER_BASE_IMAGE }}
-        DOCKER_REGISTRY: docker.io
-        DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-        DOCKER_REGISTRY_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+        DOCKER_REGISTRY: ghcr.io
+        DOCKER_REGISTRY_USERNAME: cpanato
+        DOCKER_REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SOFTHSM_VERSION: ${{ matrix.SOFTHSM_VERSION }}
-        TRIVY_GITHUB_TOKEN: ${{ github.token }}
+        TRIVY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         if [[ $GITHUB_REF_NAME == "main" && $ACT != "true" ]]; then
           export DOCKER_PUSH=1
