@@ -108,8 +108,8 @@ DOCKER_BUILDKIT=1 docker build "$project_root" \
 # apply tags
 #################################################
 for tag in ${tags[@]}; do
-   echo "Tagging docker image [$docker_registry/$image_name] as [$tag]..."
-   docker image tag $docker_registry/$image_name $tag
+   echo "Tagging docker image [$docker_registry/$image_name] as [$docker_registry/$tag]..."
+   docker image tag $docker_registry/$image_name $docker_registry/$tag
 done
 
 
