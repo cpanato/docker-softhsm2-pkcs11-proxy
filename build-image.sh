@@ -15,8 +15,8 @@ source "$shared_lib/lib/build-image-init.sh"
 #################################################
 # specify target docker registry/repo
 #################################################
-docker_registry=${DOCKER_REGISTRY:-docker.io}
-image_repo=${DOCKER_IMAGE_REPO:-vegardit/softhsm2-pkcs11-proxy}
+docker_registry=${DOCKER_REGISTRY:-ghcr.io}
+image_repo=${DOCKER_IMAGE_REPO:-cpanato/softhsm2-pkcs11-proxy}
 base_image_name=${DOCKER_BASE_IMAGE:-alpine:3}
 base_image_linux_flavor=${base_image_name%%:*}
 
