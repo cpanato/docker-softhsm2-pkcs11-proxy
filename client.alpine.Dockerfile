@@ -11,7 +11,7 @@ FROM alpine:latest
 RUN apk add --no-cache opensc openssl
 
 # install libpkcs11-proxy.so
-COPY --from=vegardit/softhsm2-pkcs11-proxy:latest-alpine /usr/local/lib/libpkcs11-proxy* /usr/local/lib/
+COPY --from=ghcr.io/cpanato/softhsm2-pkcs11-proxy:latest-alpine /usr/local/lib/libpkcs11-proxy* /usr/local/lib/
 
 # install test TLS Pre-Shared Key
-COPY --from=vegardit/softhsm2-pkcs11-proxy:latest-alpine /opt/test.tls.psk /opt/test.tls.psk
+COPY --from=ghcr.io/cpanato/softhsm2-pkcs11-proxy:latest-alpine /opt/test.tls.psk /opt/test.tls.psk
