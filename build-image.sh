@@ -99,7 +99,7 @@ DOCKER_BUILDKIT=1 docker build "$project_root" \
    --build-arg PKCS11_PROXY_SOURCE_URL="https://codeload.github.com/smallstep/pkcs11-proxy/tar.gz/refs/heads/master" \
    `#--build-arg PKCS11_PROXY_SOURCE_URL="https://codeload.github.com/scobiej/pkcs11-proxy/tar.gz/refs/heads/osx-openssl1-1"` \
    `#--build-arg PKCS11_PROXY_SOURCE_URL="https://codeload.github.com/SUNET/pkcs11-proxy/tar.gz/refs/heads/master"` \
-   -t $image_name \
+   -t $docker_registry/$image_name \
    "$@"
 
 
