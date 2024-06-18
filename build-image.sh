@@ -110,13 +110,14 @@ DOCKER_BUILDKIT=1 docker build "$project_root" \
 for tag in ${tags[@]}; do
    echo "Tagging docker image [$docker_registry/$image_name] as [$docker_registry/$tag]..."
    docker image tag $docker_registry/$image_name $docker_registry/$tag
+   docker image tag $docker_registry/$image_name $tag
 done
 
 
 #################################################
 # perform security audit
 #################################################
-bash "$shared_lib/cmd/audit-image.sh" $docker_registry/$image_name
+bash "$shared_lib/cmd/audit-image.sh" $image_name
 
 
 #################################################
