@@ -36,7 +36,8 @@ jobs:
     strategy:
       matrix:
         DOCKER_BASE_IMAGE: [ "alpine:latest", "debian:stable-slim" ]
-        SOFTHSM_VERSION: [ "latest", "develop" ]
+        # SOFTHSM_VERSION: [ "latest", "develop" ]
+        SOFTHSM_VERSION: [ "latest" ]
 
     steps:
     - name: Git Checkout

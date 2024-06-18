@@ -82,6 +82,7 @@ case $base_image_name in
    *) echo "ERROR: Unsupported base image $base_image_name"; exit 1 ;;
 esac
 
+echo "will build image ${docker_registry}/${image_name}"
 docker pull $base_image_name
 DOCKER_BUILDKIT=1 docker build "$project_root" \
    --file "image/$dockerfile" \
@@ -107,6 +108,7 @@ DOCKER_BUILDKIT=1 docker build "$project_root" \
 # apply tags
 #################################################
 for tag in ${tags[@]}; do
+   echo "Tagging docker image [$docker_registry/$image_name] as [$tag]..."
    docker image tag $docker_registry/$image_name $tag
 done
 
