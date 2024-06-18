@@ -116,7 +116,7 @@ done
 #################################################
 # perform security audit
 #################################################
-bash "$shared_lib/cmd/audit-image.sh" $image_name
+bash "$shared_lib/cmd/audit-image.sh" $docker_registry/$image_name
 
 
 #################################################
